@@ -1,4 +1,4 @@
-from flask import Flask, render_template, url_for, redirect
+from flask import Flask, render_template, url_for, redirect, flash
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, SubmitField, BooleanField
@@ -34,7 +34,7 @@ class Post(db.Model):
 
 
 class RegistrationForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
+    username = StringField('Username', validators=[DataRequired(), Length(min=4, max=20)])
     email = StringField('Email Address', validators=[DataRequired(), Email()])
     password = PasswordField('New Password', validators=[DataRequired()])
     confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
@@ -66,6 +66,8 @@ def register():
     #     user = User(form.username.data, form.email.data, form.password.data)
     #     db.session.add(user)
     #     return redirect(url_for('login'))
+    if form.validate_on_submit():
+        flash(f'Account Created for {form.username.data}! Proceed to Login!', 'success')
     return render_template("register.html", title='FeelsRegisterMan', form=form)
 
 
