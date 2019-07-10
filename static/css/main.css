@@ -30,3 +30,7 @@ div .carousel-item {
 p .lead {
     text-shadow: 1px 1px 2px black;
 }
+
+#about-me {
+    font-family: "Helvetica"
+}

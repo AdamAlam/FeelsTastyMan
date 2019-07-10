@@ -17,6 +17,16 @@
     </title>
 </head>
 <body>
+    <nav class="navbar navbar-light bg-light">
+        <a class="navbar-brand" id="main-brand" href="{{url_for('home')}}">Feels <span id="orange-brand">Tasty </span>Man</a>
+        <ul class="nav justify-content-end">
+            <li class="nav-item"><a href="{{url_for('login')}}" class="nav-link active">Login </a></li>
+            <li class="nav-item"><a href="{{url_for('register')}}" class="nav-link active">Register </a></li>
+            <li class="nav-item"><a href="https://github.com/AdamAlam/FeelsTastyMan" class="nav-link active">View The Code
+                </a></li>
+            <li class="nav-item"><a href="{{url_for('about')}}" class="nav-link active">About</a></li>
+        </ul>
+    </nav>
     {% block content %}
 
     {% endblock content %}

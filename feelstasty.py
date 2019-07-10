@@ -1,6 +1,7 @@
 from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
-from wtforms import Form, StringField, PasswordField, SubmitField
+from flask_wtf import FlaskForm
+from wtforms import StringField, PasswordField, SubmitField, BooleanField
 from wtforms.validators import DataRequired, Length, Email, EqualTo
 from datetime import datetime
 
@@ -32,17 +33,18 @@ class Post(db.Model):
     rating = db.Column(db.Integer, nullable=False)
 
 
-class RegistrationForm(Form):
+class RegistrationForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired(), Length(min=2, max=20)])
     email = StringField('Email Address', validators=[DataRequired(), Email()])
     password = PasswordField('New Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Repeat Password', validators=[DataRequired(), EqualTo('password')])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Sign Up')
 
 
-class LoginForm(Form):
+class LoginForm(FlaskForm):
     email = StringField('Email Address', validators=[DataRequired(), Email()])
-    password = PasswordField('New Password', validators=[DataRequired()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
 
 
@@ -53,14 +55,20 @@ def home():
 
 @app.route("/login", methods=["POST", "GET"])
 def login():
-    return render_template("login.html", title="FeelsLoginMan")
+    form = LoginForm()
+    return render_template("login.html", title="FeelsLoginMan", form=form)
 
 
 @app.route('/register', methods=["POST", "GET"])
 def register():
-    form = RegistrationForm(request.form)
-    if request.method == "Post" and form.validate():
-        user = User(form.username.data, form.email.data, form.password.data)
-        db.session.add(user)
-        return redirect(url_for('login'))
+    form = RegistrationForm()
+    # if request.method == "Post" and form.validate():
+    #     user = User(form.username.data, form.email.data, form.password.data)
+    #     db.session.add(user)
+    #     return redirect(url_for('login'))
     return render_template("register.html", title='FeelsRegisterMan', form=form)
+
+
+@app.route("/about")
+def about():
+    return render_template("about.html", title="FeelsCuriousMan")
