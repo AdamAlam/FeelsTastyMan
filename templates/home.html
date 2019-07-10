@@ -5,8 +5,54 @@
     <ul class="nav justify-content-end">
         <li class="nav-item"><a href="{{url_for('login')}}" class="nav-link active">Login </a></li>
         <li class="nav-item"><a href="{{url_for('register')}}" class="nav-link active">Register </a></li>
-        <li class="nav-item"><a href="http://github.com/AdamAlam" class="nav-link active">View The Code </a></li>
+        <li class="nav-item"><a href="https://github.com/AdamAlam/FeelsTastyMan" class="nav-link active">View The Code
+            </a></li>
         <li class="nav-item"><a href="#" class="nav-link active">About Me </a></li>
     </ul>
 </nav>
+<header>
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner" role="listbox">
+            <!-- Slide One - Set the background image for this slide in the line below -->
+            <div class="carousel-item active slide-img"
+                style="background-image:
+                url('https://media.cntraveler.com/photos/5a749dfbfed07977f3e32808/master/pass/Chicon_Kate-LeSueur_2018_315A6147.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Chicon</h2>
+                    <p class="lead">1914 East 6th Street.</p>
+                </div>
+            </div>
+            <!-- Slide Two - Set the background image for this slide in the line below -->
+            <div class="carousel-item"
+                style="background-image: url('http://austinfoodmagazine.com/wp-content/uploads/2015/06/MG_80831.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Café Josie</h2>
+                    <p class="lead">1200 B W 6th St.</p>
+                </div>
+            </div>
+            <!-- Slide Three - Set the background image for this slide in the line below -->
+            <div class="carousel-item"
+                style="background-image:
+                url('https://kathytranx.com/wp-content/uploads/2019/01/012219_Loro_Austin__KathyTran_IMG_2420.jpg')">
+                <div class="carousel-caption d-none d-md-block">
+                    <h2 class="display-4">Loro</h2>
+                    <p class="lead">2115 S Lamar</p>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</header>
 {% endblock content %}

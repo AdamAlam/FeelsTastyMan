@@ -1,11 +1,3 @@
-html{
-    background: url("https://media.cntraveler.com/photos/5a749dfbfed07977f3e32808/master/pass/Chicon_Kate-LeSueur_2018_315A6147.jpg") no-repeat center center fixed;   
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
 #orange-brand {
     color: #cc5500;
 }
@@ -15,28 +7,26 @@ html{
     font-size: 1.75rem;
 }
 
-/* .jumbotron, .jumbotron-fluid {
-    background: url("http://austinfoodmagazine.com/wp-content/uploads/2018/12/20180528_125045-01.jpg") no-repeat center center;
-    -webkit-background-size: 100% 100%;
-    -moz-background-size: 100% 100%;
-    -o-background-size: 100% 100%;
-    background-size: 100% 100%;
-}
- */
+.carousel-item {
+    height: 95vh;
+    min-height: 350px;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 
- 
-h2 {
-    position: absolute;
-    top: 200px;
-    left: 0;
-    width: 100%;
 }
- 
-.h2-styling {
-     color: white;
-     font: bold 24px/45px Helvetica, Sans-Serif;
-     letter-spacing: -1px;
-     background: rgb(0,0,0);
-     background: rgba(0,0,0,0.7);
-     padding: 10px;
+div .carousel-item {
+    font-family: "Abel"
+}
+
+.display-4 {
+    text-shadow: 1px 1px 2px #cc5500,
+    0 0 1em black,
+    0 0 0.2em black;
+}
+
+p .lead {
+    text-shadow: 1px 1px 2px black;
 }
