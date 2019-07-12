@@ -1,0 +1,8 @@
+[] Edit login and registration page to have picture in the back and make the form inputs unrounded
+[] Add Login Functionality (Gets email and password hash from db and authenticates)
+[] Add Register Functionality (Adds User information to new row in database)
+[] Create a main template (What users will see when they are logged in)
+[] Add functionality where if users are not following anyone, they will get suggestions to follow dummy accounts
+[] Create a follow/unfollow button (???)
+[] Add Followed/Follower Functionality (???)
+[] Create a Profile Page (Where a user can see all of their/another profile's posts) (If it is the user's own profile, they can edit their posts (Captions only))
