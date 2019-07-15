@@ -1,4 +1,4 @@
-#orange-brand {
+.orange-brand {
     color: #cc5500;
 }
 
@@ -38,4 +38,15 @@ p .lead {
 
 body {
     font-family: Helvetica, Arial, sans-serif;
+}
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+}
+
+.about-img {
+    height: 20%;
+    width: 20%;
 }
