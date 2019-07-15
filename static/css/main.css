@@ -35,3 +35,7 @@ p .lead {
 #about-me {
     font-family: "Helvetica"
 }
+
+body {
+    font-family: Helvetica, Arial, sans-serif;
+}

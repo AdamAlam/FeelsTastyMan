@@ -1,3 +1,4 @@
+[] Add a collapse functionality to navbar
 [] Edit login and registration page to have picture in the back and make the form inputs unrounded
 [] Add Login Functionality (Gets email and password hash from db and authenticates)
 [] Add Register Functionality (Adds User information to new row in database)
