@@ -16,7 +16,7 @@ class User(db.Model):
     posts = db.relationship('Post', backref='author', lazy=True)
 
     def __repr__(self):
-        return f"User('{self.l_name}', '{self.f_name}', '{self.username}', '{self.email}, '{self.image_file}'', '{self.birthdate}')"
+        return f"User(Last Name: '{self.l_name}', First Name: '{self.f_name}', Username: '{self.username}', Email: '{self.email}, Profile Picture: '{self.image_file}'', Birthday: '{self.birthdate}')"
 
 
 class Post(db.Model):

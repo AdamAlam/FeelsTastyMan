@@ -1,5 +1,5 @@
 from flask import render_template, url_for, redirect, flash
-from feelstasty import app
+from feelstasty import app, db, bcrypt
 from feelstasty.forms import RegistrationForm, LoginForm
 from feelstasty.models import User, Post
 
@@ -24,13 +24,20 @@ def login():
 @app.route('/register', methods=["POST", "GET"])
 def register():
     form = RegistrationForm()
-    # if request.method == "Post" and form.validate():
-    #     user = User(form.username.data, form.email.data, form.password.data)
-    #     db.session.add(user)
-    #     return redirect(url_for('login'))
     if form.validate_on_submit():
+        hashed_pw = bcrypt.generate_password_hash(form.password.data).decode('utf-8')
+        user = User(
+        f_name = form.f_name.data,
+        l_name = form.l_name.data,
+        birthdate = form.birthdate.data,
+        username = form.username.data,
+        email = form.email.data,
+        password = hashed_pw
+        )
+        db.session.add(user)
+        db.session.commit()
         flash(
-            f'Account Created for {form.username.data}! Proceed to Login!', 'success')
+            f'Your account has been created! Proceed to login!', 'success')
     return render_template("register.html", title='FeelsRegisterMan', form=form)
 
 
