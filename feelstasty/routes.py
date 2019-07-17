@@ -30,6 +30,7 @@ def register():
         f_name = form.f_name.data,
         l_name = form.l_name.data,
         birthdate = form.birthdate.data,
+        gender = form.gender.data,
         username = form.username.data,
         email = form.email.data,
         password = hashed_pw

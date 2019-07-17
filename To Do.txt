@@ -1,7 +1,7 @@
 [] Add a collapse functionality to navbar
 [] Edit login and registration page to have picture in the back and make the form inputs unrounded
 [] Add Login Functionality (Gets email and password hash from db and authenticates)
-[] Add Register Functionality (Adds User information to new row in database)
+[X] Add Register Functionality (Adds User information to new row in database)
 [] Create a main template (What users will see when they are logged in)
 [] Add functionality where if users are not following anyone, they will get suggestions to follow dummy accounts
 [] Create a follow/unfollow button (???)
