@@ -1,8 +1,8 @@
-from flask import render_template, url_for, redirect, flash
+from flask import render_template, url_for, redirect, flash, request
 from feelstasty import app, db, bcrypt
 from feelstasty.forms import RegistrationForm, LoginForm
 from feelstasty.models import User, Post
-from flask_login import login_user, current_user, logout_user
+from flask_login import login_user, current_user, logout_user, login_required
 
 
 @app.route("/")
@@ -21,7 +21,11 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user and bcrypt.check_password_hash(user.password, form.password.data):
             login_user(user, remember=form.remember.data)
-            return redirect(url_for('main'))
+            next_page = request.args.get('next')
+            if next_page:
+                return redirect(next_page)
+            else:
+                return redirect(url_for('main'))
         else:
             flash('Login Unsuccessful. Please try again.', 'danger')
     return render_template("login.html", title="FeelsLoginMan", form=form)
@@ -37,7 +41,7 @@ def register():
         user = User(
             f_name = form.f_name.data,
             l_name = form.l_name.data,
-            birthdate = str(form.birthdate.data)[:10],  # This [:10] is to the exclude the time that is submitted.
+            birthdate = str(form.birthdate.data)[:10],  # This [:10] is to the exclude the time that is submitted alongside the date.
             gender = form.gender.data,
             username = form.username.data,
             email = form.email.data,
@@ -56,6 +60,7 @@ def about():
 
 
 @app.route("/main")
+@login_required
 def main():
     return render_template("main.html", title="FeelsTastyMan")
 
@@ -64,4 +69,11 @@ def main():
 def logout():
     logout_user()
     return redirect(url_for('home'))
+
+
+@app.route("/profile")
+@login_required
+def profile():
+    image_file = url_for('static', filename="pics/" + current_user.image_file)
+    return render_template('profile.html', image_file=image_file)
     

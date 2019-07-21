@@ -10,5 +10,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 bcrypt = Bcrypt(app)
 login_m = LoginManager(app)
+login_m.login_view = 'login'
+login_m.login_message_category = 'info'
 
 from feelstasty import routes
